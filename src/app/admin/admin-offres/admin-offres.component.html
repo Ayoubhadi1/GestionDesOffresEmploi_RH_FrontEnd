@@ -1,0 +1,47 @@
+<h1>Liste des offres d'emploi</h1>
+<a routerLink="/admin/addOffre" class="btn btn-success mb-4" style="float: right; margin-right:50px;">
+    <i class="fas fa-plus"></i>
+     Ajouter un offre d'emploi
+</a>
+<br>
+<table class="table table-hover">
+    <thead>
+    <tr class="table-active">
+        
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Contrat</th>
+        <th>Date début</th>
+        <th>Etat</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+       
+        
+            <tr *ngFor=" let offre of offres">
+                
+                <td>{{offre.id}}</td>
+                <td>{{offre.titre}}</td>
+                <td>{{offre.description}}</td>
+                <td>{{offre.contrat}}</td>
+                <td>{{offre.dateDebut | date:'fullDate'}}</td>
+                <td>{{offre.etat}}</td>
+                
+               
+                <td>
+                    <a  class="btn btn-primary btn-sm">Détail</a>
+                    <a [routerLink]="['/admin/editOffre' , offre.id]" class="btn btn-warning btn-sm ml-3 mr-3">Modifier</a>
+                    
+                    <a (click)="deleteOffre(offre)" class="btn btn-danger btn-sm mr-3">Supprimer</a>
+                    
+                </td>
+            </tr>
+            
+            <div *ngIf="!offres">
+                <p>Aucun offre d'emploi</p>
+            </div>
+    </tbody>
+</table>
+

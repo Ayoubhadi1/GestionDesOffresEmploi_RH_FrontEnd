@@ -1,0 +1,63 @@
+<div class="row">
+  <!-- Sidebar Holder -->
+  <div class="col-md-2">
+    <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>Admin dashbord</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+          <p><i class="fas fa-user"></i>  :  <span style="color: rgb(248, 145, 145);">{{currentUser.username}}</span></p>
+          <li routerLinkActive="active">
+            <a routerLink="/admin/accueil" ><i class="fas fa-home"></i>  Accueil</a>
+            
+          </li>
+          <li routerLinkActive="active" >
+              <a routerLink="/admin/users" ><i class="fas fa-users"></i>  Utilisateurs</a>
+              
+          </li>
+          <li routerLinkActive="active">
+                <a routerLink="/admin/offresEmploi" > <i class="fas fa-list"></i>  Offres d'emploi</a>
+              
+          </li>
+          <li routerLinkActive="active">
+              <a routerLink="/admin/conges"><i class="fas fa-paperclip"></i> Congés</a>
+          </li>
+          <li>
+              <a href="#"><i class="fas fa-chart-line"></i> promotions</a>
+          </li>
+          <li>
+            <a href="#"><i class="fas fa-id-card"></i> Fiche de paie</a>
+        </li>
+          <li>
+            <a href="#">About</a>
+        </li>
+      </ul>
+
+      
+  </nav>
+  </div>
+  <div class="col-md-10"> <router-outlet></router-outlet></div>
+  
+
+   
+      
+
+  </div>
+
+
+
+
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Bootstrap Js CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+   $(document).ready(function () {
+       $('#sidebarCollapse').on('click', function () {
+           $('#sidebar').toggleClass('active');
+       });
+   });
+</script>

@@ -1,0 +1,53 @@
+<h1>Liste des utilisateurs</h1>
+<a routerLink="/admin/addUser" class="btn btn-success mb-4" style="float: right; margin-right:50px;">
+    <i class="fas fa-user-plus"></i>
+     Ajouter un personnel
+</a>
+<br>
+<table class="table table-hover">
+    <thead>
+    <tr class="table-active">
+        <th>Image</th>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Nom complet</th>
+        
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+       
+        
+            <tr *ngFor=" let user of users">
+                <td><img style="
+width: 45px;
+height: 45px;
+" src="https://bootdey.com/img/Content/avatar/avatar6.png" class="rounded-circle avatar-xs" alt="Avatar">
+    </td>
+                <td>{{user.id}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.username}}</td>
+                <td>
+                    <span *ngIf="user.roles[0].name == 'ROLE_ADMIN'">Administrateur</span>
+                    <span *ngIf="user.roles[0].name == 'ROLE_EMPLOYE'">Employé</span>
+                    <span *ngIf="user.roles[0].name == 'ROLE_USER'">Utilisateur</span>
+                   
+                </td>
+                
+               
+                <td>
+                    <a [routerLink]="['/admin/detailUser' , user.id]" class="btn btn-primary btn-sm">Détail</a>
+                    <a [routerLink]="['/admin/editUser' , user.id]" class="btn btn-warning btn-sm ml-3 mr-3">Modifier</a>
+                    
+                    <a (click)="deleteUser(user)" class="btn btn-danger btn-sm mr-3" [hidden]="currentUser.id == user.id">Supprimer</a>
+                    
+                    
+                </td>
+            </tr>
+            
+            <div *ngIf="!users">
+                <p>Aucun utilisateur inscrit</p>
+            </div>
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class="mb-4">Mes postulations : </h1>
+            <div class="widget dark-bg p-xl mb-4" *ngFor="let postulation of postulations ">
+                <h2>{{postulation.titre}}</h2>
+                <ul class="list-unstyled m-t-md">
+                    <div class="badge bg-success my-2">{{postulation.etat}}</div>
+                    <li>
+                        
+                        <b>Description : </b>
+                        {{postulation.description}}
+                    </li>
+                    <li>
+                        <i class="fas fa-file-signature"></i>
+                        <b> Contrat : </b>
+                        {{postulation.contrat}}
+                    </li>
+                   
+                    <li>
+                        <i class="fas fa-calendar-alt"></i>
+                        <b> Date début : </b>
+                        {{postulation.dateDebut | date:'fullDate'}}
+                    </li>
+
+                    <li>
+                        <i class="fas fa-user-tie"></i>
+                        <b> Responsable : </b>
+                        {{postulation.responsable.username}}
+                    </li>
+
+                    <li>
+                        <span style="color: rgb(231, 116, 139);">
+                            <i class="fas fa-calendar-alt"></i>
+                            <b> Date d'entretien : </b>
+                        </span>
+                        n'est pas encore programmé
+                    </li>
+
+                   <!-- <li style=" float : right ;">
+                        <button class="btn btn-primary"(click)="postuler(postulation.id)">Postuler</button>
+                    </li>-->
+                    
+                </ul>
+            </div> 
+        </div>    
+    </div>
+</div>

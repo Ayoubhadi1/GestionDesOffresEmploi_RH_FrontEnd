@@ -1,0 +1,43 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="widget dark-bg p-xl mb-4" *ngFor="let offre of offresEmploi ">
+                <h2>{{offre.titre}}</h2>
+                <ul class="list-unstyled m-t-md">
+                    <div class="badge bg-success my-2">{{offre.etat}}</div>
+                    <li>
+                        
+                        <b>Description : </b>
+                        {{offre.description}}
+                    </li>
+                    <li>
+                        <i class="fas fa-file-signature"></i>
+                        <b> Contrat : </b>
+                        {{offre.contrat}}
+                    </li>
+                   
+                    <li>
+                        <i class="fas fa-calendar-alt"></i>
+                        <b> Date début : </b>
+                        {{offre.dateDebut | date:'fullDate'}}
+                    </li>
+
+                    <li>
+                        <i class="fas fa-user-tie"></i>
+                        <b> Responsable : </b>
+                        {{offre.responsable.username}}
+                    </li>
+
+                    <li style=" float : right ;">
+                        <button class="btn btn-primary"(click)="postuler(offre.id)" *ngIf="isUser || !isLoggedIn">Postuler</button>
+                    </li>
+                    
+                </ul>
+            </div>  
+           
+        </div>
+        
+    </div>
+</div>
+
